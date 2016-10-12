@@ -5,21 +5,24 @@
  * Date: 10-21-2014
  **/
 
+package com.stevenlesoft.risk.model.test;
+import com.stevenlesoft.risk.model.*;
 import junit.framework.TestCase;
-import java.util.HashMap;
+
+import java.util.ArrayList;
 
 public class TerritoryTest extends TestCase
 {
 	//The Territory Objects to test
 	private Territory Russia; 
 	private Territory Australia;
-	private HashMap<String,Territory> russiaNeighbors;
+	private ArrayList<String> russiaNeighbors;
 	/**
 	 * Setup
 	 */
 	protected void setUp ()
 	{
-		russiaNeighbors = new HashMap<String,Territory>();
+		russiaNeighbors = new ArrayList<String>();
 		//initialize 2 sample Territories:name      , continent    , Neighbors
 		Russia        =    new Territory("Russia"   , "Eurasia"    , russiaNeighbors);
 		Australia     =    new Territory("Australia", "Australia"   , null );

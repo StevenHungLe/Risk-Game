@@ -5,8 +5,9 @@
  * Date: 10-21-2014
  **/
 
+package com.stevenlesoft.risk.model.test;
+import com.stevenlesoft.risk.model.*;
 import junit.framework.TestCase;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class GameBoardTest extends TestCase

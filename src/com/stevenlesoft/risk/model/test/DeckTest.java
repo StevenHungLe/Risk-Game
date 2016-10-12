@@ -5,6 +5,8 @@
  * Date: 10-21-2014
  **/
 
+package com.stevenlesoft.risk.model.test;
+import com.stevenlesoft.risk.model.*;
 import junit.framework.TestCase;
 import java.util.ArrayList;
 
@@ -34,7 +36,7 @@ public class DeckTest extends TestCase
 		tempIni.add(card1);
 		
 		//initialize a sample deck: @param: an ArrayList of cards
-		deck  = new Deck(tempIni);
+		deck  = new Deck(new GameBoard());
 	} 
 
 

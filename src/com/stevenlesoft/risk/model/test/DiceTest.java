@@ -5,6 +5,8 @@
  * Date: 10-21-2014
  **/
 
+package com.stevenlesoft.risk.model.test;
+import com.stevenlesoft.risk.model.*;
 import junit.framework.TestCase;
 import java.util.Random;
 
@@ -53,11 +55,9 @@ public class DiceTest extends TestCase
 			// call the roll method passing in attacking and defending variables
 			int[] results = dice.roll(attacking,defending);
 			
-			int count=0;
 			for(int j=0;j<attacking+defending;j++)
 			{
 				assertTrue ( results[j] <= 6 && results[j] >= 1 ); // The elements should be an integer in the range 1-6
-				count++;
 			}
 
 		}

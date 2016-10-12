@@ -5,9 +5,10 @@
  * Date: 10-21-2014
  **/
 
+package com.stevenlesoft.risk.model.test;
+import com.stevenlesoft.risk.model.*;
 import junit.framework.TestCase;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class HandTest extends TestCase
 {
@@ -33,10 +34,10 @@ public class HandTest extends TestCase
 		
 		//initialize two sample hands:one with 4 cards and one empty
 		hand1  = new Hand();
-		hand1.acceptCard(card0);
-		hand1.acceptCard(card1);
-		hand1.acceptCard(card2);
-		hand1.acceptCard(card3);
+		hand1.takeACard(card0);
+		hand1.takeACard(card1);
+		hand1.takeACard(card2);
+		hand1.takeACard(card3);
 		
 		hand0 = new Hand();
 	} 
@@ -55,24 +56,24 @@ public class HandTest extends TestCase
 		 * confirm: the method returns an ArrayList of the cards in the hand in exact order
 		 **/
 
-		assertSame( card0, hand1.getCards().get(0) );
-		assertSame( card1, hand1.getCards().get(1) );
-		assertSame( card2, hand1.getCards().get(2) );
-		assertSame( card3, hand1.getCards().get(3) );
+		assertSame( card0, hand1.get(0) );
+		assertSame( card1, hand1.get(1) );
+		assertSame( card2, hand1.get(2) );
+		assertSame( card3, hand1.get(3) );
 
 
 		/**
 		 * test case: a hand with no cards: hand0
 		 * confirm: the method returns an empty ArrayList
 		 **/
-		assertTrue( hand0.getCards().isEmpty());
+		assertTrue( hand0.isEmpty());
 
 		
 	}
 
 
 	/**
-	 * Method to be tested: void acceptCard( Card newCard)
+	 * Method to be tested: void takeACard( Card newCard)
 	 * Used to accept a Card into a Player's hand
 	 * @param newCard the new Card being given to the player's Hand
 	 * @ensure the new Card is added to the end of the hand
@@ -84,8 +85,8 @@ public class HandTest extends TestCase
 		 * confirm: the new Card is added to the end of the hand
 		 **/
 	
-		hand1.acceptCard( card4 );
-		assertSame( card4, hand1.getCards().get(4) );
+		hand1.takeACard( card4 );
+		assertSame( card4, hand1.get(4) );
 
 
 		/**
@@ -93,8 +94,8 @@ public class HandTest extends TestCase
 		 * confirm: the new Card is added to the front of the hand
 		 **/
 
-		hand0.acceptCard( card0 );
-		assertSame( card0, hand0.getCards().get(0) );
+		hand0.takeACard( card0 );
+		assertSame( card0, hand0.get(0) );
 	}
 
 
@@ -109,7 +110,7 @@ public class HandTest extends TestCase
 	 **/
 	public void testTurnInSet()
 	{
-		hand1.acceptCard( card4 );      // add a wild card to the hand for testing
+		hand1.takeACard( card4 );      // add a wild card to the hand for testing
 		ArrayList<Card> tradeSet = null;// a temporary ArrayList to contains turned in cards
 		int arraySet[];			// array of card indexes to turn in
 
@@ -126,12 +127,12 @@ public class HandTest extends TestCase
 		 * test case: two cards with the same type and a wild card (0,3,4)
 		 **/
 		arraySet= new int[] {0,3,4};
-		tradeSet= hand1.turnInSet(arraySet);
+		tradeSet= hand1.turnInCards(arraySet);
 
 		// confirm: the set of cards to be traded in is removed from the hand
-		assertFalse ( hand1.getCards().contains(card0));
-		assertFalse ( hand1.getCards().contains(card3));
-		assertFalse ( hand1.getCards().contains(card4));
+		assertFalse ( hand1.contains(card0));
+		assertFalse ( hand1.contains(card3));
+		assertFalse ( hand1.contains(card4));
 		
 		// confirm: the method returns the set of cards to be traded in as an ArrayList
 		assertSame( card0, tradeSet.get(0));

@@ -5,6 +5,8 @@
  * Date: 10-21-2014
  **/
 
+package com.stevenlesoft.risk.model.test;
+import com.stevenlesoft.risk.model.*;
 import junit.framework.TestCase;
 import java.util.HashMap;
 
@@ -61,14 +63,6 @@ public class ContinentTest extends TestCase
 		assertTrue( Africa.getNumBonusArmies() == 4 );
 	}		 // returns the continent's value of bonus armies
 
-	/**
-	 * Test method isOccupied
-	 */
-	public void testIsOccupied()
-	{
-		assertTrue( Africa.isOccupied() == false );	
-	}
-
 
 	/**
 	 * Test method setOccupant
@@ -107,17 +101,6 @@ public class ContinentTest extends TestCase
 		
 	}	
 
-	
-	/**
-	 * Test method toggleIsOccupied
-	 */
-	public void testToggleIsOccupied()
-	{
-		Africa.toggleIsOccupied();
-		assertTrue( Africa.isOccupied() == true );	
-		Africa.toggleIsOccupied();
-		assertTrue( Africa.isOccupied() == false );
-	}
 
 
 }// end class ContinentTest
