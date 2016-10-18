@@ -31,12 +31,12 @@ public class DeckTest extends TestCase
 		card3 = new Card("type3","terr3");
 		card4 = new Card("type4","terr4");
 
-		ArrayList<Card> tempIni = new ArrayList<Card>();
-		tempIni.add(card0);
-		tempIni.add(card1);
+		ArrayList<Card> initialCardList = new ArrayList<Card>();
+		initialCardList.add(card0);
+		initialCardList.add(card1);
 		
-		//initialize a sample deck: @param: an ArrayList of cards
-		deck  = new Deck(new GameBoard());
+		//initialize a sample deck using a sample card list
+		deck  = new Deck(initialCardList);
 	} 
 
 
