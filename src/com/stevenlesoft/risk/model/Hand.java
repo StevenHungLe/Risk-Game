@@ -23,7 +23,7 @@ public class Hand extends ArrayList<Card>
 		this.turnedInCards = new ArrayList<Card>(3); // 3 is number of cards in a set to be turned in
 	}
 
-   // Method Headers
+
 	/**
 	 * Used to receive a Card into a Player's hand
 	 * @param newCard the new Card being given to the player's Hand
@@ -44,52 +44,18 @@ public class Hand extends ArrayList<Card>
 	{
 		turnedInCards.clear();
 
-          // call helper method sortArray to put indices in descending order
-          // to easily remove items at desired indices
-		set = sortArray( set );
-
 		// add the cards to the list to be turned in
 		for( int i : set)
 		{
 			turnedInCards.add( this.get(i) );
 		}
 
-          // remove the turned in cards from the hand
-		for( int i=0 ; i < 3; i++ )
+        // remove the turned in cards from the hand
+		for( Card toRemove: turnedInCards)
 		{
-			this.remove( set[i] );
+			this.remove(toRemove);
 		}
 		
 		return turnedInCards;
-	}
-
-	/**
-	 * Helper method: Called by method turnInCards() to sort the card indices arrays
-	 * @param: int[] array: the array of card indices
-	 * @return: int[] : a sorted array of card indices in descending order
-	 **/
-	private int[] sortArray(int[] array )
-	{
-		int[] tempArray = new int[3];
-		// outer loop to assign values in an array in descending order
-		for(int i=0; i <= 2;i++)
-		{
-			int greatest = array[0];
-			int greatestIndex = 0;
-			//inner loop to find the greatest value
-			for( int j = 0; j <= 2; j++)
-			{
-				if( greatest < array[j])
-				{
-					greatest = array[j];
-					greatestIndex=j;
-				}	
-			}
-			// set the value at the greatest index = 0 to avoid duplication
-			array[greatestIndex]=0;
-			// assign greatest value to the array in descenging order
-			tempArray[i]=greatest;
-		}
-		return tempArray;
 	}
 } ///////////////////////////////////// end class Hand

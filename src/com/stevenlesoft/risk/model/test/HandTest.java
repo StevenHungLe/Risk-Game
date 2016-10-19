@@ -67,8 +67,6 @@ public class HandTest extends TestCase
 		 * confirm: the method returns an empty ArrayList
 		 **/
 		assertTrue( hand0.isEmpty());
-
-		
 	}
 
 
@@ -78,7 +76,7 @@ public class HandTest extends TestCase
 	 * @param newCard the new Card being given to the player's Hand
 	 * @ensure the new Card is added to the end of the hand
 	 **/
-	public void testAcceptCard()
+	public void testTakeACard()
 	{
 		/**
 		 * test case: a simple hand: hand1
@@ -138,8 +136,6 @@ public class HandTest extends TestCase
 		assertSame( card0, tradeSet.get(0));
 		assertSame( card3, tradeSet.get(1));
 		assertSame( card4, tradeSet.get(2));
-
-			
 	}
 
 }// end class HandTest

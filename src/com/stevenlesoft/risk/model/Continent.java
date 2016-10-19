@@ -80,8 +80,8 @@ public class Continent
 		this.occupant = newOccupant;
 		
 		// add itself to new occupant's map
-		this.occupant.updateContinentsMap("add",this); 
-		
+		if(this.occupant != null)
+			this.occupant.updateContinentsMap("add",this); 
 	}
 
 } ///////////////////////////////////// end class Continent
